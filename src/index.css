@@ -1,0 +1,65 @@
+:root {
+  --bg: #e9d5bc;
+  --board: #d9b98f;
+  --wood: #c4986a;
+  --wood-dark: #b08354;
+  --paper: #fbf4e9;
+  --line: #cdb08a;
+  --ink: #3a2a1d;
+  --ink-soft: #6a523f;
+  --basil: #5f7a3e;
+  --basil-bg: #e3ebd2;
+  --danger: #a4402b;
+  --danger-bg: #f6ddd5;
+  --radius: 10px;
+  --font-head: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 400; line-height: 1.2; margin: 0; }
+p { margin: 0; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+:focus-visible { outline: 3px solid var(--basil); outline-offset: 2px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 20px; border: 1.5px solid var(--wood-dark); border-radius: var(--radius);
+  background: var(--wood); color: var(--ink); font-weight: 600;
+  transition: background .15s, transform .1s;
+}
+.btn:hover:not(:disabled) { background: var(--wood-dark); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ghost { background: transparent; border-color: var(--line); }
+.btn-ghost:hover:not(:disabled) { background: rgba(196, 152, 106, .25); }
+
+.field-input {
+  width: 100%; padding: 11px 14px; background: var(--paper);
+  border: 1.5px solid var(--line); border-radius: var(--radius);
+}
+.field-input::placeholder { color: #9b8068; }
+.field-input:focus { border-color: var(--wood-dark); outline: none; box-shadow: 0 0 0 3px rgba(196, 152, 106, .45); }
+.field-input[aria-invalid='true'] { border-color: var(--danger); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
